@@ -1,4 +1,4 @@
-# Startup: *nome a definir*
+# Startup: BellaData
 
 Plataforma web instalável (PWA) para clínicas de estética: agenda por profissional sem marcação duplicada, lembretes automáticos que reduzem faltas, prontuário com anamnese e fotos "Antes/Depois" e contratos com assinatura digital para procedimentos invasivos.
 
@@ -11,9 +11,8 @@ Projeto do **Bootcamp Software Engineering Project** (MBA em Engenharia de Softw
 
 | Integrante | Papel |
 |--|--|
-| Jéssica Arruda | *a definir* |
-| Rafael Silva | *a definir* |
-| Daniel Damascena | *a definir* |
+| Jéssica Arruda | Product Owner |
+| Rafael Silva | Tech Lead |
 
 Papéis do bootcamp (um por integrante; todos operam agentes e revisam PRs):
 
@@ -56,8 +55,8 @@ Papéis do bootcamp (um por integrante; todos operam agentes e revisam PRs):
 
 | Checkpoint | Entrega | Situação |
 |--|--|--|
-| 01 · Times e desafio | README, Lean Canvas, hipótese, PRD com os 6 pilares, AGENTS.md v0 | Em andamento |
-| 02 · Produto | Discovery, AI Canvas, MoSCoW, histórias com critérios, PRD v1 | — |
+| 01 · Times e desafio | README, Lean Canvas, hipótese, PRD com os 6 pilares, AGENTS.md v0 | Concluído |
+| 02 · Produto | Discovery, AI Canvas, MoSCoW, histórias com critérios, PRD v1 | Em andamento |
 | 03 · Protótipo | Telas HTML testadas, ADR do design system, diário #1 | — |
 | 04 · Design C1/C2 | LikeC4, ADRs, walking skeleton com deploy e CI | — |
 | 05 · MVP | URL pública, fluxo principal, testes e eval no CI, diário #2 | — |
