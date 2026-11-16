@@ -1,7 +1,6 @@
 # PRD · Gestão de Clínicas de Estética
 
-**Versão:** v0 (esqueleto, checkpoint 01) · **Dono:** Product Owner *(a definir)*
-**Detalhe:** histórias, regras e critérios completos em [especificação funcional](../specs/especificacao-funcional.md). Este PRD resume; a especificação manda em caso de divergência.
+**Versão:** v0 (esqueleto, checkpoint 01)**Detalhe:** histórias, regras e critérios completos em [especificação funcional](../specs/especificacao-funcional.md). Este PRD resume; a especificação manda em caso de divergência.
 
 ## 1. Visão e objetivo
 
@@ -69,6 +68,6 @@ Primeiros clientes: clínicas pequenas e médias, com mais de um profissional, q
 
 ## Em aberto para o PRD v1
 
-- **IA no produto:** a regra 01 do bootcamp exige IA como parte da proposta de valor, e o escopo atual não tem IA. Candidata em [hipotese.md](hipotese.md): previsão do risco de falta. Decidir no AI Canvas (checkpoint 02).
+- **IA no produto:** a regra 01 do bootcamp exige IA como parte da proposta de valor, e o escopo atual não tem IA. Candidata em [hipotese.md](hipotese.md): previsão do risco de falta, pendente de validação com o POD. **Decisão do POD: a IA na proposta de valor será confirmada no checkpoint 02**, no AI Canvas.
 - Pendências de definição PD01–PD11 da especificação funcional.
 - Priorização MoSCoW do MVP (checkpoint 02).

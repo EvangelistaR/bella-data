@@ -25,3 +25,7 @@ A regra 01 do bootcamp exige **IA como parte da proposta de valor**. A hipótese
 > Acreditamos que **prever o risco de falta de cada agendamento com IA**, e agir antes (reforçar o lembrete, pedir confirmação à recepção, oferecer o horário à lista de espera), para clínicas de estética, vai gerar menos horários vazios. Saberemos que é verdade quando a taxa de faltas cair mais nas clínicas que usam a previsão do que nas que só recebem o lembrete.
 
 *(proposta: ainda não validada nem incluída no escopo da especificação funcional)*
+
+**Decisão do POD:** a IA na proposta de valor será confirmada no checkpoint 02, junto com o AI Canvas. Até lá, a hipótese oficial é a primeira, sem IA.
+
+A previsão do risco de falta segue como **proposta pendente de validação com o POD**.
