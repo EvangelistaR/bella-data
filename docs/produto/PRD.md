@@ -30,6 +30,7 @@ Primeiros clientes: clínicas pequenas e médias, com mais de um profissional, q
 | Agenda | Consulta por procedimento e profissional, reserva do horário por 5 minutos, confirmação, agendamento pela recepção, grade diária, bloqueio de folga, cancelamento *(proposta)* | HU08–HU13, HU25 |
 | Prontuário | Anamnese fixa com exportação em PDF, fotos Antes/Depois, histórico do paciente | HU14–HU17 |
 | Contratos | Gera contrato com variáveis, assinatura por *touchscreen*, consulta do contrato assinado | HU18–HU20 |
+| Assistente de IA no WhatsApp | Profissional pergunta pelo WhatsApp e a IA responde sobre a agenda do dia, clientes e procedimentos *(proposta)* | HU26 |
 | Comunicação | Lembrete 24h por WhatsApp com "Sim/Não" e e-mail com anexo de calendário; acompanhamento das confirmações *(proposta)* | HU21–HU24 |
 
 **Fora do MVP:** construtor de anamnese, assinatura remota, comparador de fotos, marca d'água, *push*, cache *offline*, visões semanal e mensal, insumos por sessão (ver "Não contempla" na especificação).
@@ -68,6 +69,6 @@ Primeiros clientes: clínicas pequenas e médias, com mais de um profissional, q
 
 ## Em aberto para o PRD v1
 
-- **IA no produto:** a regra 01 do bootcamp exige IA como parte da proposta de valor, e o escopo atual não tem IA. Candidata em [hipotese.md](hipotese.md): previsão do risco de falta, pendente de validação com o POD. **Decisão do POD: a IA na proposta de valor será confirmada no checkpoint 02**, no AI Canvas.
-- Pendências de definição PD01–PD11 da especificação funcional.
+- **IA no produto:** decidido pelo POD em 16/11/2026: assistente de IA no WhatsApp para os profissionais consultarem agenda do dia, clientes e procedimentos (HU26, ver [hipotese.md](hipotese.md)); a previsão de falta foi descartada. PD12–PD14 resolvidas pela PO em 17/11 (RN21, RN22). Falta o AI Canvas.
+- Pendências de definição PD01–PD14 da especificação funcional.
 - Priorização MoSCoW do MVP (checkpoint 02).

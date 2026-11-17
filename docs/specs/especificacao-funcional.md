@@ -29,6 +29,7 @@ Entregar uma plataforma web instalável (*PWA*) para clínicas de estética que 
 - Gerador de contratos parametrizável para procedimentos invasivos, com assinatura por *touchscreen* no dispositivo do atendimento.
 - Lembrete automático por WhatsApp (com pedido de confirmação) e por e-mail com anexo de calendário, 24 horas antes do atendimento.
 - Controle de acesso por perfil e proteção de dados sensíveis conforme a LGPD.
+- Assistente de IA no WhatsApp para o profissional consultar a agenda do dia, clientes e procedimentos (proposta).
 
 **Não contempla (entregas futuras, previstas na proposta)**
 - Visões semanal e mensal da grade do profissional (PA11).
@@ -50,12 +51,13 @@ Entregar uma plataforma web instalável (*PWA*) para clínicas de estética que 
 |--|--|--|
 | Paciente | Externo | Cadastra-se, consulta e reserva horários, confirma presença, assina contratos, recebe lembretes. |
 | Recepção | Atendimento da clínica | Cadastra pacientes, agenda em nome deles e acompanha as confirmações. |
-| Profissional | Equipe clínica | Consulta a própria grade, preenche anamnese, registra fotos, consulta histórico e emite contratos. |
+| Profissional | Equipe clínica | Consulta a própria grade (também pelo assistente no WhatsApp), preenche anamnese, registra fotos, consulta histórico e emite contratos. |
 | Administrador da clínica | Gestão da clínica | Cadastra profissionais, grades, procedimentos, modelos de contrato, usuários e perfis de acesso. |
 
 ## Aplicações envolvidas
 - Plataforma web/PWA de gestão da clínica — aplicação nova, objeto deste projeto.
-- WhatsApp — canal de envio do lembrete e do pedido de confirmação.
+- WhatsApp — canal de envio do lembrete e do pedido de confirmação, e canal do assistente de IA dos profissionais.
+- Serviço de IA (modelo de linguagem) — interpreta as perguntas do profissional e redige as respostas (a definir em ADR).
 - E-mail transacional — canal de envio do lembrete com anexo de calendário.
 - Google Agenda / Apple Calendar — agendas do paciente que recebem o compromisso pelo anexo.
 
@@ -147,6 +149,9 @@ flowchart LR
 | RN17 | O paciente escolhe o procedimento e o profissional e vê o calendário filtrado por eles. | Proposta |
 | RN18 | O profissional pode bloquear horários de folga; horário bloqueado não é oferecido para agendamento. | Proposta |
 | RN19 | O contrato tem como variáveis: nome do paciente, CPF, procedimento, valor, data e riscos envolvidos. | Proposta |
+| RN20 | O assistente de IA no WhatsApp só consulta informações; não cria, altera nem cancela agendamentos ou registros. Responde apenas com dados que o profissional já pode ver no sistema pelo seu perfil (RN15). | Reunião do POD 16/11/2026 |
+| RN21 | O assistente responde apenas com nome do cliente, data, horário e procedimento. Telefone, anamnese, fotos, contratos e demais dados de saúde não são enviados pelo WhatsApp. | PO 17/11/2026 (PD13) |
+| RN22 | O assistente é usado apenas pelo perfil Profissional, sobre a própria agenda e os próprios clientes, e o reconhece pelo número de WhatsApp ou pelo nome cadastrado. Recepção e administrador consultam pelo sistema. | PO 17/11/2026 (PD12, PD14) |
 
 
 # Histórias de usuário
@@ -453,6 +458,25 @@ flowchart LR
 1. **Dado** um usuário com perfil de paciente, **quando** acessar o sistema, **então** não vê os agendamentos de outros pacientes.
 
 
+## Assistente de IA no WhatsApp
+
+### HU26 - Consultar agenda, clientes e procedimentos pelo WhatsApp (proposta)
+
+**Como** profissional, **quero** perguntar pelo WhatsApp sobre a minha agenda do dia, meus clientes e os procedimentos, **para** ter a informação entre um atendimento e outro sem abrir o sistema.
+
+**Regras relacionadas:** RN01, RN14, RN15, RN20, RN21, RN22
+
+**Critérios de aceite**
+1. **Dado** um profissional reconhecido pelo número ou pelo nome, **quando** perguntar pela agenda do dia, **então** recebe os atendimentos em ordem de horário, com nome do cliente, data, horário e procedimento, iguais aos da grade diária (HU12).
+1. **Dado** um profissional reconhecido, **quando** perguntar sobre um cliente ou um procedimento da sua agenda, **então** recebe apenas nome do cliente, data, horário e procedimento (RN21).
+1. **Dado** um profissional reconhecido, **quando** pedir telefone, anamnese, fotos, contrato ou outro dado de saúde, **então** o assistente informa que esse dado só está disponível no sistema (RN21).
+1. **Dado** um número e um nome não vinculados a um profissional, **quando** enviarem uma pergunta, **então** nenhuma informação da clínica é respondida (RN22).
+1. **Dado** um usuário com perfil Recepção ou Administrador, **quando** enviar uma pergunta ao assistente, **então** é orientado a consultar pelo sistema (RN22).
+1. **Dado** um profissional, **quando** perguntar sobre a agenda ou um cliente de outro profissional, **então** o assistente não responde com esses dados (RN22).
+1. **Dado** um pedido para marcar, alterar ou cancelar, **quando** o profissional o enviar, **então** o assistente informa que só faz consultas (RN20).
+1. **Dado** uma pergunta sem resposta nos dados do sistema, **quando** o assistente responder, **então** informa que não encontrou a informação, sem inventar.
+
+
 # Pendências de definição
 ---
 | ID | Pendência | Impacta | Responsável | Status |
@@ -468,6 +492,9 @@ flowchart LR
 | PD09 | Dados obrigatórios do cadastro do paciente (o CPF é necessário ao menos para o contrato, RN19), necessidade de login para agendar e texto do termo de consentimento LGPD, inclusive uso de imagem. | HU06, HU07, HU18 | Clínica / Jurídico (DPO) | Aberta |
 | PD10 | Prazo de guarda de fotos, anamneses e contratos, e tratamento de pedido de exclusão de dados frente à guarda não editável dos termos. | RN13, RN14 | Jurídico (DPO) | Aberta |
 | PD11 | ~~Bloqueios na grade.~~ A proposta define que o profissional bloqueia os próprios horários de folga (RN18, HU25). Falta definir quem cadastra a grade base (dias, horários, intervalos), se o profissional pode alterá-la e quem vê a grade de quem. | HU01, HU12, HU25 | Clínica | Resolvida em parte |
+| PD12 | ~~Como o assistente identifica o profissional.~~ A PO definiu: pelo número de WhatsApp ou pelo nome cadastrado (RN22). | HU26 | POD / Tech Lead | Resolvida |
+| PD13 | ~~Quais dados de cliente o assistente pode responder no WhatsApp.~~ A PO definiu, para o início: nome, data, horário e procedimento (RN21). | HU26, RN14 | Clínica / Jurídico (DPO) | Resolvida |
+| PD14 | ~~Quem usa o assistente.~~ A PO definiu, para o início: só o profissional; recepção e administrador consultam pelo sistema (RN22). | HU26, PD11 | Clínica | Resolvida |
 
 
 # Pontos em aberto
@@ -500,3 +527,5 @@ flowchart LR
 |--|--|--|--|
 | 10/10/2026 | Levantamento inicial a partir da descrição do projeto e do MVP | — | Escopo da especificação restrito ao MVP; visão completa registrada como fase futura. |
 | 10/10/2026 | Alinhamento com a proposta "Arquitetura, módulos e funcionalidades" | — | A proposta resolveu em parte PD01, PD04, PD07 e PD11 (RN16 a RN19, HU25); os demais itens da proposta ficaram como entrega futura (PA01 a PA04, PA08, PA11 a PA18); perfil Recepção mantido. |
+| 16/11/2026 | IA no produto | POD | A IA do produto é um assistente no WhatsApp para os profissionais consultarem agenda do dia, clientes e procedimentos (HU26, RN20); a previsão do risco de falta foi descartada. Abertas PD12 a PD14. |
+| 17/11/2026 | Assistente de IA no WhatsApp | PO | RN20 confirmada; PD12 a PD14 resolvidas: reconhecimento pelo número ou pelo nome, respostas com nome, data, horário e procedimento, uso só pelo profissional (RN21, RN22). |

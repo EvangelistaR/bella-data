@@ -18,14 +18,12 @@
 - **Discovery (checkpoint 02):** entrevistar clínicas para levantar a taxa de faltas atual e como a agenda é feita hoje.
 - **Protótipo (checkpoint 03):** pacientes e recepcionistas navegam no fluxo de agendamento e de confirmação pelo lembrete.
 
-## Ponto de atenção: IA no produto
+## IA no produto
 
-A regra 01 do bootcamp exige **IA como parte da proposta de valor**. A hipótese acima ainda não depende de IA. Variante proposta para discutir no POD e registrar no AI Canvas:
+A regra 01 do bootcamp exige **IA como parte da proposta de valor**.
 
-> Acreditamos que **prever o risco de falta de cada agendamento com IA**, e agir antes (reforçar o lembrete, pedir confirmação à recepção, oferecer o horário à lista de espera), para clínicas de estética, vai gerar menos horários vazios. Saberemos que é verdade quando a taxa de faltas cair mais nas clínicas que usam a previsão do que nas que só recebem o lembrete.
+**Decisão do POD (16/11/2026):** a IA do produto é um **assistente no WhatsApp para os profissionais da clínica**, que responde a perguntas sobre a agenda do dia, os clientes e os procedimentos. A previsão do risco de falta, proposta no checkpoint 01, foi **descartada**.
 
-*(proposta: ainda não validada nem incluída no escopo da especificação funcional)*
+> Acreditamos que **um assistente de IA no WhatsApp que responde aos profissionais sobre a agenda do dia, os clientes e os procedimentos**, para profissionais de clínicas de estética, vai gerar menos tempo gasto procurando informação entre um atendimento e outro. Saberemos que é verdade quando *(métrica e meta a definir no AI Canvas)*.
 
-**Decisão do POD:** a IA na proposta de valor será confirmada no checkpoint 02, junto com o AI Canvas. Até lá, a hipótese oficial é a primeira, sem IA.
-
-A previsão do risco de falta segue como **proposta pendente de validação com o POD**.
+Definido pela PO em 17/11/2026: só o profissional usa o assistente, reconhecido pelo número ou pelo nome, e as respostas trazem apenas nome do cliente, data, horário e procedimento (RN20 a RN22 da [especificação funcional](../specs/especificacao-funcional.md)).
