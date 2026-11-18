@@ -26,4 +26,4 @@ A regra 01 do bootcamp exige **IA como parte da proposta de valor**.
 
 > Acreditamos que **um assistente de IA no WhatsApp que responde aos profissionais sobre a agenda do dia, os clientes e os procedimentos**, para profissionais de clínicas de estética, vai gerar menos tempo gasto procurando informação entre um atendimento e outro. Saberemos que é verdade quando *(métrica e meta a definir no AI Canvas)*.
 
-Definido pela PO em 17/11/2026: só o profissional usa o assistente, reconhecido pelo número ou pelo nome, e as respostas trazem apenas nome do cliente, data, horário e procedimento (RN20 a RN22 da [especificação funcional](../specs/especificacao-funcional.md)).
+Definido pela PO em 17/11/2026: só o profissional usa o assistente, reconhecido pelo número ou pelo nome, e as respostas trazem apenas nome do cliente, data, horário, procedimento e situação da confirmação (RN20 a RN22 da [especificação funcional](../specs/especificacao-funcional.md)).

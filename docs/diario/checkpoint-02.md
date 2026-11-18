@@ -12,3 +12,7 @@
 - **Pedido:** a PO confirmou a RN20 e resolveu PD12 (reconhecimento pelo número ou pelo nome), PD13 (nome, data, horário e procedimento) e PD14 (só o profissional; recepção e administrador pelo sistema).
 - **O que o agente fez:** criou RN21 e RN22, reescreveu os critérios da HU26 e marcou PD12–PD14 como resolvidas.
 - **Onde o agente interpretou:** retirou "situação da confirmação" da resposta da agenda, porque não está na lista da PD13; trocou o critério "informações do cadastro do procedimento" por "nome, data, horário e procedimento". Apontou à PO o risco de reconhecer o profissional só pelo nome.
+
+## 18/11/2026 · Situação da confirmação no assistente
+
+- **Intervenção do POD:** a PO pediu para incluir a situação da confirmação nas respostas; o agente atualizou RN21, HU26 e PD13.
